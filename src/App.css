@@ -24,13 +24,18 @@ border-top: 1px solid rgba(0, 0, 0, 0.15);
   flex: 1;
   justify-content: flex-start;
   align-items: flex-start;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+.SideMenuAndPageContent  .ant-space-item{
+  height: 100%;
 }
 .SideMenu{
-
+  height: 100%;
 }
+.SideMenuVertical{
+  height: 100%;
+}
+
 .PageContent{
 padding-left: 12px;
-}
-.SideMenu{
-
 }
