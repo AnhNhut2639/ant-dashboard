@@ -8,7 +8,7 @@ const NotFound = () => {
       }}
       className="text-red-500"
     >
-      Not fucking found
+      Not found | 404
     </div>
   );
 };
