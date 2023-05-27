@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Button, Table, Modal, Input } from "antd";
 import React, { useState } from "react";
 import { EditOutlined, DeleteOutlined } from "@ant-design/icons";

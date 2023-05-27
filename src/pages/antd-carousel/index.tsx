@@ -61,7 +61,7 @@ const AntdCarousel = () => {
           Next
         </Button>
       </div>
-      {/* <div>
+      <div>
         <Steps
           current={current}
           percent={50}
@@ -76,7 +76,7 @@ const AntdCarousel = () => {
           <Step title="In Progress" subTitle="2 Mins" status="error"></Step>
           <Step title="Waiting"></Step>
         </Steps>
-      </div> */}
+      </div>
       <div>
         <Collapse
           accordion={false}

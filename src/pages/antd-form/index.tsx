@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
 import {
   Form,
@@ -27,28 +28,29 @@ const AntDForm = () => {
     ],
   };
   // search auto complete
-  // const options = [
-  //   {
-  //     label: "One",
-  //     value: "one",
-  //   },
-  //   {
-  //     label: "Two",
-  //     value: "two",
-  //   },
-  //   {
-  //     label: "Three",
-  //     value: "three",
-  //   },
-  // ];
+  const options = [
+    {
+      label: "One",
+      value: "one",
+    },
+    {
+      label: "Two",
+      value: "two",
+    },
+    {
+      label: "Three",
+      value: "three",
+    },
+  ];
   const [form] = Form.useForm();
   const name = Form.useWatch("myName", form);
   const programing = Form.useWatch("programing", form);
   console.log(name);
 
   return (
-    <div className="h-screen w-screen text-2xl flex flex-col items-center justify-center">
-      {/* <Form
+    <div className="h-[110vh] min-h-screen w-screen text-2xl flex flex-col items-center justify-center">
+      {/* -------- Form--------- */}
+      <Form
         autoComplete="off"
         labelCol={{ span: 10 }}
         wrapperCol={{ span: 14 }}
@@ -127,7 +129,7 @@ const AntDForm = () => {
         >
           <Input.Password placeholder="Type your confirm password"></Input.Password>
         </Form.Item>
-        <Form.Item name="gender" label="Gender" requiredMark="optional">
+        <Form.Item name="gender" label="Gender" required>
           <Select placeholder="Type your confirm password">
             <Select.Option value="male">Male</Select.Option>
             <Select.Option value="female">Female</Select.Option>
@@ -182,8 +184,9 @@ const AntDForm = () => {
             Register
           </Button>
         </Form.Item>
-      </Form> */}
-      {/* rate */}
+      </Form>
+      {/* -------- end Form--------- */}
+      {/* -------- Rate --------- */}
       <Rate />
       <Rate
         defaultValue={3}
@@ -202,8 +205,9 @@ const AntDForm = () => {
           console.log("You rate as", value);
         }}
       />
+      {/* --------End Rate --------- */}
 
-      {/* Dynamic Form */}
+      {/* ---------- Dynamic Form -------- */}
       <Form
         initialValues={initialValues}
         onFinish={onFinish}
@@ -278,8 +282,9 @@ const AntDForm = () => {
           Submit
         </Button>
       </Form>
+      {/* ---------- end Dynamic Form -------- */}
       {/* Search auto complete */}
-      {/* <AutoComplete
+      <AutoComplete
         style={{ width: 230 }}
         placeholder="search here auto complete...."
         options={options}
@@ -290,7 +295,7 @@ const AntDForm = () => {
         onSearch={(values) => {
           console.log("search...", values);
         }}
-      /> */}
+      />
 
       <Form form={form}>
         <Form.Item label="Name" name={"myName"}>
