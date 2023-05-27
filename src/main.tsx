@@ -7,11 +7,14 @@ import store from "./store/index.ts";
 import "./index.css";
 // load Toast styles
 import "react-toastify/dist/ReactToastify.css";
+import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <Provider store={store}>
     <React.StrictMode>
-      <App />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
       <ToastContainer />
     </React.StrictMode>
   </Provider>

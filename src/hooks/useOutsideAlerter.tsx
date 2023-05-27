@@ -1,9 +1,9 @@
-import { RefObject, useEffect } from 'react';
+import { RefObject, useEffect } from "react";
 
 function useOutsideAlerter(
   ref: RefObject<HTMLDivElement>,
   callback?: () => void,
-  deps?: any[],
+  deps?: any[]
 ): void {
   useEffect(() => {
     /**
@@ -11,18 +11,29 @@ function useOutsideAlerter(
      */
     function handleClickOutside(event: any) {
       if (ref.current && !ref.current.contains(event.target)) {
-        typeof callback === 'function' && callback();
+        typeof callback === "function" && callback();
       }
     }
 
     // Bind the event listener
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
       // Unbind the event listener on clean up
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ref, ...(deps || [])]);
 }
 
 export default useOutsideAlerter;
+
+// const contactRef = useRef(null);
+// useOutsideAlerter(
+//   contactRef,
+//   () => {
+//     if (isOpenSupport) {
+//       dispatch(setOpenSupport(false));
+//     }
+//   },
+//   [isOpenSupport],
+// );

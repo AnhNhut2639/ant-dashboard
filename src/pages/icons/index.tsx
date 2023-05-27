@@ -1,4 +1,3 @@
-import React from "react";
 import { AppleFilled, ExclamationCircleTwoTone } from "@ant-design/icons";
 import { Divider } from "antd";
 const AntdIcons = () => {
@@ -10,7 +9,7 @@ const AntdIcons = () => {
         rotate={45}
       />
       <ExclamationCircleTwoTone twoToneColor="red" style={{ fontSize: 100 }} />
-      {/* <Divider /> */}
+      <Divider />
     </div>
   );
 };
