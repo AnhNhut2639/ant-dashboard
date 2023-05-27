@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Avatar, Space, Table, Typography } from "antd";
 import { useEffect, useState } from "react";
 import { getCustomer } from "../../apis";

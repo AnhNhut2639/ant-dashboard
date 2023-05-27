@@ -17,6 +17,7 @@ import {
   Legend,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
+import { TOrder, TOrders } from "../../types";
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -116,7 +117,13 @@ const Dashboard = () => {
     </Space>
   );
 };
-function DashboardCard({ title, value, icon }: any) {
+type TDashboard = {
+  title?: string;
+  value?: number;
+  icon?: JSX.Element;
+};
+
+function DashboardCard({ title, value, icon }: TDashboard) {
   return (
     <Card>
       <Space direction="horizontal">
@@ -127,7 +134,7 @@ function DashboardCard({ title, value, icon }: any) {
   );
 }
 function RecentOrders() {
-  const [dataSource, setDataSource] = useState<any>([]);
+  const [dataSource, setDataSource] = useState<Array<TOrder>>([]);
   const [loading, setLoading] = useState<boolean>(false);
   useEffect(() => {
     setLoading(true);
@@ -165,18 +172,31 @@ function RecentOrders() {
     </>
   );
 }
+type TDashboardChart = {
+  labels?: Array<string>;
+  datasets?: Array<
+    [
+      {
+        label: string;
+        data?: TOrders;
+        backgroundColor?: string;
+      }
+    ]
+  >;
+};
 function DashboardChart() {
-  const [revenueData, setrevenueData] = useState<any>({
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [revenueData, setRevenueData] = useState<TDashboardChart | any>({
     labels: [],
     datasets: [],
   });
 
   useEffect(() => {
     getRevenue().then((res) => {
-      const labels = res.carts.map((cart: any) => {
+      const labels = res.carts.map((cart: TOrders) => {
         return `User-${cart.userId}`;
       });
-      const data = res.carts.map((cart: any) => {
+      const data = res.carts.map((cart: TOrders) => {
         return cart.discountedTotal;
       });
 
@@ -197,7 +217,7 @@ function DashboardChart() {
         ],
       };
 
-      setrevenueData(dataSource);
+      setRevenueData(dataSource);
     });
   }, []);
 

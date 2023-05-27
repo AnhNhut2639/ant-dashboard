@@ -1,14 +1,15 @@
 import { Avatar, Rate, Space, Table, Typography } from "antd";
 import { useEffect, useState } from "react";
 import { getInventory } from "../../apis";
+import { TOrder } from "../../types";
 
 const Inventory = () => {
   const [loading, setLoading] = useState<boolean>(false);
-  const [dataSource, setdataSource] = useState<any>([]);
+  const [dataSource, setdataSource] = useState<Array<TOrder>>([]);
   useEffect(() => {
     setLoading(true);
     try {
-      getInventory().then((result: any) => {
+      getInventory().then((result) => {
         setdataSource(result.products);
         setLoading(false);
       });
